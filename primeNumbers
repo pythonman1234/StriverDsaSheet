@@ -1,0 +1,67 @@
+#include<cstring>
+
+vector<int> primeNumbersTillN(int N) 
+
+{ 
+
+    // Write your code here
+
+    vector<int> primeNumbers;
+
+    
+
+    //  if anythink is done using static array dont use dynamic array 
+
+    int isPrime[N+1]={0};
+
+    isPrime[0] = 1;
+
+    isPrime[1] = 1;
+
+ 
+
+    for(int num = 2;num*num <= N; num++)
+
+    {
+
+        
+
+        if(isPrime[num]==0){
+
+        // If num is prime, we set multiples of num in isPrimelse
+
+        for (int i = num * num; i <= N; i += num) {
+
+          isPrime[i] = 1;
+
+        }
+
+        }
+
+        }
+
+ 
+
+    for(int i = 2; i <= N; i++)
+
+    {
+
+        if(isPrime[i] == 0)
+
+        {
+
+            primeNumbers.push_back(i);
+
+        }
+
+    }
+
+ 
+
+    return primeNumbers;
+
+ 
+
+ 
+
+}
